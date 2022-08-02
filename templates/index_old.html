@@ -1,0 +1,81 @@
+<!DOCTYPE <html>
+<html lang='en'>
+<head>
+	<meta chapset='UTF-8'>
+<title>Title</title>
+</head>
+<body>
+
+<br>
+<br>
+<br>
+<br>
+
+<form action="{% url 'thanks_page' %}" method="POST"> 
+    {% csrf_token %}
+    {{form.as_p}}
+	<!-- <Label>name</Label>
+    <input name="name">
+    <Label>telephone</Label>
+    <input name="phone"> -->
+    
+<button type="submit">отправить</button> 
+</form>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+{% if object_list%}
+<table border='1'>
+	<tr>
+		<th>ID</th>
+		<th>data</th>
+		<th>name</th>
+		<th>telephone</th>
+    </tr>
+{% for obj in object_list%}
+	<tr>
+		<th>{{obj.id}}</th>
+		<th>{{obj.order_dt}}</th>
+		<th>{{obj.order_name}}</th>
+		<th>{{obj.order_phone}}</th>
+    </tr>
+{% endfor%}
+</table>
+
+{% else %} 
+
+нет данных
+
+{% endif %}
+
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
